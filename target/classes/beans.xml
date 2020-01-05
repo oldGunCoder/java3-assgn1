@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="studentBean1" class="jac.assign1.model.Student">
+		<property name="stdId" value="1001"></property>
+		<property name="stdName" value="Peng"></property>
+	</bean>
+	
+	<bean id="studentBean2" class="jac.assign1.model.Student">
+		<property name="stdId" value="1002"></property>
+		<property name="stdName" value="Zhilin"></property>
+	</bean>
+	
+	<bean id="teacherBean" class="jac.assign1.model.Teacher">
+	<constructor-arg type="java.util.List" name="studentList">
+		<list value-type="jac.assign1.model.Student">
+			<ref bean="studentBean1" />
+			<ref bean="studentBean2" />
+		</list>
+	</constructor-arg>
+	<constructor-arg name="name" type="java.lang.String"
+		value="Ms. Smith">
+	</constructor-arg>
+	</bean>
+</beans>
